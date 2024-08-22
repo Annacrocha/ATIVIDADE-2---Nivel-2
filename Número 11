@@ -3,24 +3,24 @@
 #include <locale.h>
 
 int main() {
-	setlocale (LC_ALL, "");
-	int num, i, resultado = 0;
+	setlocale (LC_ALL, "portuguese");
+	int num, i, resultado;
 	
 	printf("Descubra se o número é primmo!\n");
 	printf("Digite um número: \n");
 	scanf("%d", &num);
 	
-	for (i =2; i <= num / 2; i++); {
+	for (i = 2; i <= num / 2; i++) {
 		if (num % i == 0) {
 		resultado++;
 		
 		}
 	}
 	
-	if (resultado == 0)
-		printf("%d não é um número primo\n", num);
-	else 
+	if (resultado == 1)
 		printf("%d é um número primo\n", num);
+	else 
+		printf("%d não é um número primo\n", num);
 		
 	return 0;
 }
