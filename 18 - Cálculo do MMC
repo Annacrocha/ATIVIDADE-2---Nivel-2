@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main () {
+	setlocale (LC_ALL, "portuguese");
+	int a, num1, num2, resto;
+	
+	printf("Mínimo Múltiplo Comum \n");
+	printf("Difite dois núemros: \n");
+	scanf("%d %d", &num1, &num2);
+	
+	for (a =1; a <= num1 * num2; a++) {
+		resto = (num1 * a) % num2;
+		if (resto == 0) break;
+	}
+	
+	printf("\n O MMC entre %d e %d é: %d", num1, num2, a);
+	
+	return 0;
+}
