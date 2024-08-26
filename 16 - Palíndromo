@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+
+int isPalindrome(const char *str) {
+    int start = 0;
+    int end = strlen(str) - 1;
+
+    while (start < end) {
+        if (str[start] != str[end]) {
+            return 0; 
+        }
+        start++;
+        end--;
+    }
+    return 1; 
+}
+
+int main() {
+    char input[100];
+
+    printf("Digite uma palavra ou número: ");
+    scanf("%s", input);
+
+    if (isPalindrome(input)) {
+        printf("\"%s\" é um palíndromo.\n", input);
+    } else {
+        printf("\"%s\" não é um palíndromo.\n", input);
+    }
+
+    return 0;
+}
