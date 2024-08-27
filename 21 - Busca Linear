@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int linear(int arr[], int size, int target) {
+	for(int i = 0; i < size; i++) {
+		if(arr[i] == target) {
+			return 1;
+		}
+	}
+	return -1;
+}
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+	int size, target;
+	
+	printf("Digite o tamanho do vetor: \n");
+		scanf("%d", &size);
+		
+	int arr[size];
+	
+	printf("Digite os %d elementos do vetor:\n", size);
+	for (int i = 0; i < size; i++) {
+		scanf("%d", &arr[i]);
+	}
+	
+	printf("Digite o valor a ser buscado: \n");
+		scanf("%d", &target);
+		
+	int result = linear(arr, size, target);
+	if (result ! = -1) {
+		printf("O valor %d foi encontrado no índice %d. \n", target, result);
+	} else {
+		printf("O valor %d foi encontrado no vetor. \n", target);
+	}
+	
+	return 0;
+}
