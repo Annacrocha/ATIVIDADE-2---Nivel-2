@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <math.h>
+
+int binaria_pDecimal(const char *binario) {
+	int decimal = 0;
+	int comprimento = strlen(binario);
+	
+	for (int i = 0; i < comprimento; i++) {
+		if (binario[i] == '1') {
+			decimal += pow(2, comprimento - 1 - i);
+		} else if (binario[i] != '0') {
+			printf("Entrada inválida: '%c'. Apenas 0 e 1 são permitidos.\n", binario[i]);
+			return -1;
+		}
+	}
+	
+	return decimal;
+}
+	
+	int main() {
+		setlocale(LC_ALL, "Portuguese");
+		char binario[65];
+		
+		printf("Digite um número (até 64 bits): \n");
+		scanf("%64s", binario);
+		
+		int decimal = binaria_pDecimal(binario);
+		
+		if (decimal != -1 ) {
+			printf("O número binário %s em desimal %d.\n", binario, decimal);
+		}
+	
+	return 0;
+
+}
