@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <math.h>
+
+void decimal_para_binario (int decimal) {
+	setlocale(LC_ALL, "Portuguese");
+	char binario[33];
+	int i = 0;
+	int j = 0;
+	
+	if (decimal == 0) {
+		printf("O número binário é 0.\n");
+		return;
+	}
+	
+	while (decimal > 0) {
+		binario[i++] = (decimal % 2) + '0';
+		decimal /= 2;
+	}
+	
+	binario[i] = '0';
+	for (j = i; j>= 0; j--) {
+		printf("%c", binario[j]);
+	}
+	
+	printf("\n");
+	
+}
+	
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+	int decimal;
+	
+	printf("Digite um número decimal: \n");
+		scanf("%d", &decimal);
+		
+	printf("O número decimal %d em binário é: ", decimal);
+	decimal_para_binario(decimal);
+	
+	return 0;
+}
