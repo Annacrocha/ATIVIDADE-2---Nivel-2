@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <locale.h>
+#include <ctype.h>
+
+int stringParaInt(const char *str) {
+    int resultado = 0;
+    int sinal = 1;
+
+    if (*str == '-') {
+        sinal = -1;
+        str++;
+    } else if (*str == '+') {
+        str++;
+    }
+
+    while (*str) {
+        if (isdigit((unsigned char)*str)) {
+            resultado = resultado * 10 + (*str - '0');
+        } else {
+            break;
+        }
+        str++;
+    }
+
+    return resultado * sinal;
+}
+
+int main() {
+	setlocale(LC_ALL, "portuguese");
+    char str[100];
+    
+    printf("Digite uma string para converter em número inteiro: ");
+    fgets(str, sizeof(str), stdin);
+
+    char *newline = strchr(str, '\n');
+    if (newline) {
+        *newline = '\0';
+    }
+
+    int numero = stringParaInt(str);
+    printf("Número convertido: %d\n", numero);
+
+    return 0;
+}
